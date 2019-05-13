@@ -113,3 +113,30 @@ contactPValues.forEach((val, i) => {
 })
 
 footerP.textContent = siteContent['footer']['copyright']
+
+//change the color of navigation text to green
+
+navLinks.forEach((nav, i )=> {
+  nav.style.color = 'green'
+})
+
+const nav = document.querySelector('nav')
+const elWithAppendChild = document.createElement('a')
+elWithAppendChild.href = '#';
+elWithAppendChild.style.color = 'green';
+const elWithAppendChildText = document.createTextNode('FAQ');
+
+elWithAppendChild.appendChild(elWithAppendChildText)
+
+nav.appendChild(elWithAppendChild)
+
+const elWithPrepend = document.createElement('a')
+elWithPrepend.href = '#';
+elWithPrepend.style.color = 'green';
+const elWithPrependText = document.createTextNode('Home');
+
+elWithPrepend.appendChild(elWithPrependText)
+
+nav.prepend(elWithPrepend)
+
+  
