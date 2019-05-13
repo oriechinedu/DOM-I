@@ -45,8 +45,9 @@ const navLinks = document.querySelectorAll('nav a');
 const logo = document.querySelector('.logo')
 
 const cta = document.querySelector('.cta')
-const ctsH1 = document.querySelector('.cta .cta-text h1')
+const ctaH1 = document.querySelector('.cta .cta-text h1')
 const ctaButton = document.querySelector('.cta .cta-text button')
+const ctaImage = document.querySelector('#cta-img')
 
 const mainContent = document.querySelector('.main-content')
 const topContentH4 = document.querySelectorAll('.main-content .top-content .text-content h4')
@@ -58,6 +59,57 @@ const bottomContentH4 = document.querySelectorAll('.main-content .bottom-content
 const bottomContentP = document.querySelectorAll('.main-content .bottom-content .text-content p')
 
 const contact = document.querySelector('.contact')
+const contactH4 = document.querySelector('.contact h4')
 const contactPs = document.querySelectorAll('.contact p')
 
 const footerP = document.querySelector('footer p')
+
+const siteNavContents = Object.values(siteContent["nav"])
+
+navLinks.forEach((nav, i )=> {
+  nav.textContent = siteNavContents[i]
+})
+logo.src = 'img/logo.png';
+const wordsInH1 = siteContent['cta']['h1'].split(' ')
+const wordsWithBr = wordsInH1.map((word, i, wordsInH1) => {
+  if (i !== (wordsInH1.length -1)) {
+    return `${word} <br>`
+  } else {
+    return word;
+  }
+}).join(' ')
+
+ctaH1.insertAdjacentHTML("afterbegin", wordsWithBr)
+
+ctaButton.textContent = siteContent['cta']['button']
+ctaImage.src = 'img/header-img.png';
+
+const mainContentVal = siteContent['main-content']
+topContentH4[0].textContent = mainContentVal['features-h4']
+topContentP[0].textContent = mainContentVal['features-content']
+
+topContentH4[1].textContent = mainContentVal['about-h4']
+topContentP[1].textContent = mainContentVal['about-content']
+
+middleImage.src = 'img/mid-page-accent.jpg'
+
+bottomContentH4[0].textContent = mainContentVal['services-h4']
+bottomContentP[0].textContent = mainContentVal['services-content']
+bottomContentH4[1].textContent = mainContentVal['product-h4']
+bottomContentP[1].textContent = mainContentVal['product-content']
+
+bottomContentH4[2].textContent = mainContentVal['vision-h4']
+bottomContentP[2].textContent = mainContentVal['vision-content']
+
+const contactVal = siteContent['contact']
+contactH4.textContent = contactVal['contact-h4']
+
+const contactPValues = Object.values(contactVal)
+
+contactPValues.forEach((val, i) => {
+  if(i !== 0) {
+    contactPs[i - 1].textContent = val
+  }
+})
+
+footerP.textContent = siteContent['footer']['copyright']
