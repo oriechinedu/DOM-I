@@ -139,4 +139,30 @@ elWithPrepend.appendChild(elWithPrependText)
 
 nav.prepend(elWithPrepend)
 
+const images = document.querySelectorAll('img');
+
+images.forEach(el => {
+  el.addEventListener('mouseenter' , function() {
+    el.classList.add('hovered');
+  })
+})
+
+images.forEach(el => {
+  el.addEventListener('mouseleave' , function() {
+    el.classList.remove('hovered');
+  })
+})
+
+const newNavLinks = document.querySelectorAll('nav a');
+newNavLinks.forEach(el => {
+  el.addEventListener('mouseenter' , function() {
+    el.style.color = 'black';
+  })
+})
+
+newNavLinks.forEach(el => {
+  el.addEventListener('mouseleave' , function() {
+    el.style.color = 'green';
+  })
+})
   
